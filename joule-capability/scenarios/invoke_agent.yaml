@@ -1,0 +1,23 @@
+description: >
+  Call this agent when the user asks anything related to SAP SuccessFactors (SFSF) employee data,
+  HR information, people management, or contract renewals. For example: "Who is my manager?",
+  "Show me the org chart for John Smith", "What is Jane's job title?",
+  "Find employees in the Finance department", "What is my leave balance?",
+  "Show me the direct reports of userId jsmith", "What department does admin work in?",
+  "Look up employee details for userId i000123", "Show contract renewal cases",
+  "What is the contract renewal status for VHOFFMAN?", "List pending contract renewals".
+
+target:
+  type: function
+  name: call_agent
+  parameters:
+    - name: contextId
+      value: $capability_context.contextId
+    - name: taskId
+      value: $capability_context.taskId
+
+capability_context:
+  - name: contextId
+    value: $target_result.contextId
+  - name: taskId
+    value: $target_result.taskId

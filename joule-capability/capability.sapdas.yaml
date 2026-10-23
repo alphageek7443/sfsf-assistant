@@ -1,0 +1,12 @@
+schema_version: 3.32.0
+
+metadata:
+  namespace: joule.ext
+  name: sfsf_assistant_a2a
+  version: 1.0.0
+  display_name: "sfsf-assistant"
+  description: "A general-purpose SAP SuccessFactors assistant that helps users query employee data, org structure, HR processes, and other SuccessFactors information"
+
+system_aliases:
+  SfsfAssistant:
+    destination: sfsf-assistant-auth

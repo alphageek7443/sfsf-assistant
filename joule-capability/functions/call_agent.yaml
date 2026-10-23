@@ -1,0 +1,36 @@
+parameters:
+  - name: contextId
+    optional: true
+  - name: taskId
+    optional: true
+
+action_groups:
+  - actions:
+      - type: status-update
+        message: <? "Invoking Agent" ?>
+
+      - type: agent-request
+        agent_type: remote
+        system_alias: SfsfAssistant
+        body: >
+          <? (contextId == null || contextId.isEmpty()) && (taskId == null || taskId.isEmpty())
+             ? null
+             : '{"contextId": "' + (contextId != null ? contextId : '') + '", "taskId": "' + (taskId != null ? taskId : '') + '"}' ?>
+        result_variable: result
+
+      - type: set-variables
+        variables:
+          - name: contextId
+            value: <? result.body.contextId ?>
+          - name: taskId
+            value: <? result.body.id ?>
+
+      - type: message
+        message:
+          type: text
+          content: "<? result.body.artifacts != null && result.body.artifacts.size() > 0 ? result.body.artifacts[0].parts[0].text : (result.body.status != null && result.body.status.message != null ? result.body.status.message : 'I could not process your request. Please try again.') ?>"
+          markdown: true
+
+result:
+  contextId: "<? contextId ?>"
+  taskId: "<? result.body.status != null && result.body.status.state == 'input-required' ? taskId : '' ?>"

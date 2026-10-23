@@ -1,0 +1,58 @@
+# ===================
+# Certificates/Secrets
+# ===================
+certs/privateKey.pem
+certs/sfsf-saml-client.p12
+certs/certificate.pem
+
+# ===================
+# Documentation (generated/internal)
+# ===================
+docs/
+
+# ===================
+# Environment
+# ===================
+.env
+api.http
+*.servicekey.json
+*-service-key.json
+
+# ===================
+# Python
+# ===================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.venv/
+venv/
+env/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ===================
+# OS
+# ===================
+**/.DS_Store
+Thumbs.db
+
+# ===================
+# IDE
+# ===================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ===================
+# Node (if any)
+# ===================
+node_modules/
+
+# ===================
+# Logs
+# ===================
+*.log
+logs/

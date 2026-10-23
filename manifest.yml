@@ -1,0 +1,18 @@
+---
+applications:
+  - name: sfsf-assistant
+    memory: 512M
+    disk_quota: 1G
+    instances: 1
+    buildpacks:
+      - python_buildpack
+    command: python -m app
+    env:
+      MODEL_NAME: gpt-4.1
+      AICORE_RESOURCE_GROUP: default
+      IAS_ISSUER: https://your-ias-tenant.accounts.ondemand.com
+      IAS_AUDIENCE: your-ias-audience-uuid
+    services:
+      - your-destination-service
+    routes:
+      - route: your-app.cfapps.<region>.hana.ondemand.com

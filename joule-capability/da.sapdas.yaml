@@ -1,0 +1,6 @@
+schema_version: 1.8.0
+name: sfsf_assistant_a2a
+capabilities:
+  - type: local
+    name: sfsf_assistant_a2a
+    folder: ./
